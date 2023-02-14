@@ -1,14 +1,16 @@
 <template>
     <div>
-        <h1>Cloudpunch Candy</h1>
-        <h4>We have many candy options! Add your own to the list or edit an existing candy.</h4>
+        <div class="container">
+            <h1>Cloudpunch Candy</h1>
+            <h4>We have many candy options! Add your own to the list, edit, or delete an existing candy.</h4>
+        </div>
 
         <!-- Div for GET candy -->
-        <!-- why won't candy ID display? -->
-        <div v-for="(candy,i) in candy"
-        :key="i"
+        <div v-for="candy in candy"
+        :key="candy.candyId"
+        class="container"
         >
-            <p>Id: {{ candy.id }} | {{ candy.candyName }} | {{ candy.variety }}</p>
+            <p>Id: {{ candy.candyId }} {{ candy.candyName }} | {{ candy.category }}</p>
         </div>
 
         <!-- Div for POST candy -->
@@ -59,7 +61,7 @@
             </v-container>
         </div>
 
-        <!-- Div for PATCH candy -->
+        <!-- Div for DELETE candy -->
         <div>
             <v-container>
                 <h3>Delete Candy:</h3>
@@ -169,5 +171,11 @@ import axios from "axios";
 </script>
 
 <style scoped>
-
+.container{
+    width: 75vw;
+}
+button{
+    background-color: lightblue;
+    padding: 5px;
+}
 </style>
